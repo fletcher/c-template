@@ -285,52 +285,78 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;command.</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;## Source File Templates ##</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;## Git Submodules ##</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;In the `templates` directory are two files, `template.c.in` and</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;`template.h.in`.  These are used to create default source files that include</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;the project title, copyright, license, etc. They are also set up to include</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;some example information for [Doxygen] and [CuTest].</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;Apparently, submodules are a rather controversial feature in git.  For me,</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;however, they have proven invaluable.  My most active projects depend on each</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;other, and the submodule feature allows me to easily keep everything up to</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;date.  That said, however, I quickly realized that submodules don&#39;t work very</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;well using default commands.</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;## License ##</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;The `c-template` project is released under the MIT License.</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;GLibFacade.c and GLibFacade.h are from the MultiMarkdown v4 project:</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;The problem is that I want to always use the latest version of my submodules.</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;This is more easily accomplished when the submodule is set to the `master`</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;branch of the original repository, rather than a detached commit as happens</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;by default.  In order to easily keep all submodules updated, there are two </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;scripts:</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;   https://github.com/fletcher/MultiMarkdown-4/</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;MMD 4 is released under both the MIT License and GPL.</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;CuTest is released under the zlib/libpng license. See CuTest.c for the text</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;of the license.</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;## The MIT License ##</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;1. `link_git_modules` -- this script is generally only run when the master</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;repository is first cloned, but can also be run after a new submodule is </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;added.  It causes the submodules to automatically track the master branch.</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;If you need to modify this, there are instructions in the script itself </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;explaining how to modify it on a per submodule basis.  Running this script </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;more than one time will not hurt anything.</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;2. `update_git_modules` -- this script simply causes each submodule to be</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;updated to the latest commit in the original repository.  Again, running it</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;multiple times doesn&#39;t hurt anything.</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;Permission is hereby granted, free of charge, to any person obtaining a copy</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;of this software and associated documentation files (the &quot;Software&quot;), to deal</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;in the Software without restriction, including without limitation the rights</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;copies of the Software, and to permit persons to whom the Software is</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;furnished to do so, subject to the following conditions:</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;The above copyright notice and this permission notice shall be included in</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;all copies or substantial portions of the Software.</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;THE SOFTWARE.</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;## Source File Templates ##</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;In the `templates` directory are two files, `template.c.in` and</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;`template.h.in`.  These are used to create default source files that include</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;the project title, copyright, license, etc. They are also set up to include</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;some example information for [Doxygen] and [CuTest].</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;## License ##</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;The `c-template` project is released under the MIT License.</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;GLibFacade.c and GLibFacade.h are from the MultiMarkdown v4 project:</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;   https://github.com/fletcher/MultiMarkdown-4/</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;MMD 4 is released under both the MIT License and GPL.</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;CuTest is released under the zlib/libpng license. See CuTest.c for the text</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;of the license.</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;## The MIT License ##</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;Permission is hereby granted, free of charge, to any person obtaining a copy</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;of this software and associated documentation files (the &quot;Software&quot;), to deal</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;in the Software without restriction, including without limitation the rights</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;copies of the Software, and to permit persons to whom the Software is</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;furnished to do so, subject to the following conditions:</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;The above copyright notice and this permission notice shall be included in</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;all copies or substantial portions of the Software.</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;THE SOFTWARE.</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 24 2016 21:38:38 for C-Template by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 24 2016 22:00:38 for C-Template by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

@@ -147,6 +147,13 @@ make windows-zip-32
 </pre><p>Use the MinGW software to cross-compile for Windows on a *nix machine. You can specify the 32 bit option, and also the zip option as indicated. </p><pre class="fragment">make documentation
 </pre><p>Build the <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a>-generated documentation. </p><pre class="fragment">make clean
 </pre><p>Clean out the <code>build</code> directory. Be sure to run this before running another command.</p>
+<h2>Git Submodules</h2>
+<p>Apparently, submodules are a rather controversial feature in git. For me, however, they have proven invaluable. My most active projects depend on each other, and the submodule feature allows me to easily keep everything up to date. That said, however, I quickly realized that submodules don't work very well using default commands.</p>
+<p>The problem is that I want to always use the latest version of my submodules. This is more easily accomplished when the submodule is set to the <code>master</code> branch of the original repository, rather than a detached commit as happens by default. In order to easily keep all submodules updated, there are two scripts:</p>
+<ol type="1">
+<li><code>link_git_modules</code> &ndash; this script is generally only run when the master repository is first cloned, but can also be run after a new submodule is added. It causes the submodules to automatically track the master branch. If you need to modify this, there are instructions in the script itself explaining how to modify it on a per submodule basis. Running this script more than one time will not hurt anything.</li>
+<li><code>update_git_modules</code> &ndash; this script simply causes each submodule to be updated to the latest commit in the original repository. Again, running it multiple times doesn't hurt anything.</li>
+</ol>
 <h2>Source File Templates</h2>
 <p>In the <code>templates</code> directory are two files, <code>template.c.in</code> and <code>template.h.in</code>. These are used to create default source files that include the project title, copyright, license, etc. They are also set up to include some example information for <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a> and <a href="http://cutest.sourceforge.net">CuTest</a>.</p>
 <h2>License</h2>
@@ -161,7 +168,7 @@ make windows-zip-32
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 24 2016 21:38:38 for C-Template by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 24 2016 22:00:38 for C-Template by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
