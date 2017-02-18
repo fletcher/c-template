@@ -361,6 +361,7 @@ else (APPLE)
 endif (APPLE)
 
 # Use some default install locations (if appropriate)
+set(CPACK_SET_DESTDIR true)
 if (WIN32)
 	set (CPACK_INSTALL_PREFIX "")
 	set (CPACK_NSIS_MODIFY_PATH ON)
