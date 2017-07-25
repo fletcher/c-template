@@ -34,8 +34,8 @@ analyze: $(BUILD_DIR)
 #	xcodebuild -configuration Debug
 #	xcodebuild -configuration Release
 .PHONY : xcode
-xcode: $(XCOD_BUILD_DIR)
-	cd $(XCOD_BUILD_DIR); \
+xcode: $(XCODE_BUILD_DIR)
+	cd $(XCODE_BUILD_DIR); \
 	cmake -G Xcode ..
 
 .PHONY : xcode-debug
