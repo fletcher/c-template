@@ -8,7 +8,7 @@
 #
 # Modified by Fletcher T. Penney for proper error codes
 
-if test $# -eq 0 ; then FILES=*.c ; else FILES=$* ; fi
+if test $# -eq 0 ; then FILES=("*.c") ; else FILES=("$@") ; fi
 
 echo '
 
@@ -20,7 +20,7 @@ echo '
 
 '
 
-cat $FILES | grep '^void Test' | 
+cat "${FILES[@]}" | grep '^void Test' | 
     sed -e 's/(.*$//' \
         -e 's/$/(CuTest*);/' \
         -e 's/^/extern /'
@@ -35,7 +35,7 @@ void RunAllTests(void)
     int failCount = 0;
 
 '
-cat $FILES | grep '^void Test' | 
+cat "${FILES[@]}" | grep '^void Test' | 
     sed -e 's/^void //' \
         -e 's/(.*$//' \
         -e 's/^/    SUITE_ADD_TEST(suite, /' \
