@@ -102,3 +102,7 @@ $(XCODE_DEBUG_BUILD_DIR):
 CHANGELOG:
 	git log master..develop --format="*    %s" | sort | uniq > CHANGELOG-UNRELEASED
 
+# Use astyle
+.PHONY : astyle
+astyle:
+	astyle --options=.astylerc "src/*.c" "src/*.h"
