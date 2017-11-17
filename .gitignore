@@ -21,3 +21,5 @@ DerivedData
 
 build-xcode
 build-xcode-debug
+
+*.orig
