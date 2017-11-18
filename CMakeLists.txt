@@ -54,7 +54,7 @@ MACRO(ADD_PUBLIC_HEADER target filename)
 	# the workflow as appropriate, since there is only one 
 	# public_header_files list.
 
-	SET_TARGET_PROPERTIES(${target} PROPERTIES PUBLIC_HEADER ${filename})
+	# SET_TARGET_PROPERTIES(${target} PROPERTIES PUBLIC_HEADER ${filename})
 
 	LIST(APPEND public_header_files ${filename})
 
@@ -62,7 +62,7 @@ MACRO(ADD_PUBLIC_HEADER target filename)
 		${filename}
 		PROPERTIES
 		MACOSX_PACKAGE_LOCATION
-		PUBLIC_HEADER
+		include/\${PRODUCT_NAME}
 	)
 
 	# Set Xcode project to configure public header location to allow
@@ -303,15 +303,20 @@ endif (WIN32)
 # ==============
 
 # Create a library?
-# add_library(libFOO STATIC
-#	${src_files}
-#	${src_utility_files}
-#	${header_files}
-#	${header_utility_files}
-# )
+add_library(libFOO STATIC
+	${src_files}
+	${src_utility_files}
+	${header_files}
+	${header_utility_files}
+)
 
 # remove the extra "lib" from "liblibFOO"
-# SET_TARGET_PROPERTIES(libFOO PROPERTIES PREFIX "")
+SET_TARGET_PROPERTIES(libFOO PROPERTIES
+	PREFIX ""
+	FRAMEWORK TRUE
+	FRAMEWORK_VERSION A
+	MACOSX_FRAMEWORK_IDENTIFIER net.fletcherpenney.c-template
+)
 
 # Create a command-line app?
 # if (NOT DEFINED TEST)
