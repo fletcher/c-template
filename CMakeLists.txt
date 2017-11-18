@@ -125,9 +125,9 @@ ENDMACRO(ADD_LINKED_FRAMEWORK)
 
 file(READ ${PROJECT_SOURCE_DIR}/LICENSE.txt My_Project_License)
 
-string(REGEX REPLACE "\n" "\n\t" My_Project_License_Indent ${My_Project_License})
+string(REGEX REPLACE "\n" "\n\t" My_Project_License_Indented ${My_Project_License})
 
-string(REGEX REPLACE "\"" "\\\\\"" My_Project_License_Escaped ${My_Project_License_Indent})
+string(REGEX REPLACE "\"" "\\\\\"" My_Project_License_Escaped ${My_Project_License_Indented})
 
 string(REGEX REPLACE "\n" "\\\\n\"\\\\\n\"" My_Project_License_Literal ${My_Project_License_Escaped})
 
