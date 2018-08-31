@@ -7,6 +7,7 @@
 # Date: 01/08/2003
 #
 # Modified by Fletcher T. Penney for proper error codes
+# Modified by Fletcher T. Penney to handle spaces in path names
 
 if test $# -eq 0 ; then FILES=("*.c") ; else FILES=("$@") ; fi
 

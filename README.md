@@ -4,9 +4,9 @@
 | ---------- | ------------------------- |  
 | Title:     | C-Template        |  
 | Author:    | Fletcher T. Penney       |  
-| Date:      | 2017-01-16 |  
-| Copyright: | Copyright © 2015-2017 Fletcher T. Penney.    |  
-| Version:   | 1.0.5      |  
+| Date:      | 2018-08-31 |  
+| Copyright: | Copyright © 2015-2018 Fletcher T. Penney.    |  
+| Version:   | 1.0.6      |  
 
 
 ## Introduction ##
