@@ -1,58 +1,59 @@
 /**
 
-    Dynamic string -- Lightweight dynamic string implementation
+	Dynamic string -- Lightweight dynamic string implementation.
 
-    @file d_string.h
+	@file d_string.h
 
-    @brief Dynamic string -- refactoring of old GLibFacade.  Provides a string
-    "object" that can grow to accomodate any size content that is appended.
+	@brief Dynamic string -- refactoring of old GLibFacade from MultiMarkdown.
+	Provides a string "object" that can grow to accomodate any size content
+	that is appended.
 
 
-    @author Daniel Jalkut, modified by Fletcher T. Penney and Dan Lowe
+	@author	Daniel Jalkut, modified by Fletcher T. Penney and Dan Lowe
 
-    @bug
+	@bug
 
 **/
 
 /*
 
-    Copyright © 2011 Daniel Jalkut.
-    Modifications by Fletcher T. Penney, Copyright © 2011-2017 Fletcher T. Penney.
-    Modifications by Dan Lowe, Copyright © 2011 Dan Lowe.
+	Copyright © 2011 Daniel Jalkut.
+	Modifications by Fletcher T. Penney, Copyright © 2011-2018 Fletcher T. Penney.
+	Modifications by Dan Lowe, Copyright © 2011 Dan Lowe.
 
 
-    The `MultiMarkdown 6` project is released under the MIT License..
+	The `MultiMarkdown 6` project is released under the MIT License..
 
-    GLibFacade.c and GLibFacade.h are from the MultiMarkdown v4 project:
+	GLibFacade.c and GLibFacade.h are from the MultiMarkdown v4 project:
 
-        https://github.com/fletcher/MultiMarkdown-4/
+		https://github.com/fletcher/MultiMarkdown-4/
 
-    MMD 4 is released under both the MIT License and GPL.
-
-
-    CuTest is released under the zlib/libpng license. See CuTest.c for the text
-    of the license.
+	MMD 4 is released under both the MIT License and GPL.
 
 
-    ## The MIT License ##
+	CuTest is released under the zlib/libpng license. See CuTest.c for the text
+	of the license.
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
+	## The MIT License ##
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
 
 */
 
