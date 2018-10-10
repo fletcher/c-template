@@ -8,10 +8,10 @@ cmake_minimum_required (VERSION 2.6)
 set (My_Project_Title "C-Template")
 set (My_Project_Description "Boilerplate c project with cmake support, CuTest unit testing, and more.")
 set (My_Project_Author "Fletcher T. Penney")
-set (My_Project_Revised_Date "2018-09-02")
+set (My_Project_Revised_Date "2018-10-09")
 set (My_Project_Version_Major 1)
 set (My_Project_Version_Minor 0)
-set (My_Project_Version_Patch 7)
+set (My_Project_Version_Patch 8)
 
 set (My_Project_Version "${My_Project_Version_Major}.${My_Project_Version_Minor}.${My_Project_Version_Patch}")
 
