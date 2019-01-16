@@ -70,6 +70,6 @@ DString * scan_file(char * fname) {
 	return buffer;
 }
 
-int main( int argc, char** argv ) {
+int main( int argc, char ** argv ) {
 	/* Make your program do whatever you want */
 }
